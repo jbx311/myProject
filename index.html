@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App首页</title>
+  <link rel="stylesheet" href="..\resource\css\styles.css">
+  <link rel="stylesheet" href="..\resource\css\index.css?v=1.1">
+  <link rel="stylesheet" href="..\resource\fonts\iconfont.css">
+  <link rel="stylesheet" href="..\resource\fonts\iconfont2.css">
+  <script src="..\resource\fonts\iconfont.js"></script>
+  <script src="..\resource\fonts\iconfont2.js"></script>
+  <script src="..\resource\js\index.js"></script>
+</head>
+
+<body>
+
+  <div class="jin_tabs">
+    <!-- 底部导航栏 -->
+    <ul id="jin_nav">
+      <li class="jin_tablinks" onclick="openTab(event, 'Home')">
+        <span class="iconfont icon-shouye-zhihui"></span>
+        <p>首页</p>
+      </li>
+      <li class="jin_tablinks" onclick="openTab(event, 'Chef')">
+        <span class="iconfont icon-chushicaipin"></span>
+        <p>名厨菜</p>
+      </li>
+      <li>
+        <svg class="jin_icon" aria-hidden="true">
+          <use xlink:href="#icon-plus_full"></use>
+        </svg>
+      </li>
+      <li class="jin_tablinks" onclick="openTab(event, 'Message')">
+        <span class="iconfont icon-xiaoxi_o"></span>
+        <p>消息</p>
+      </li>
+      <li class="jin_tablinks" onclick="openTab(event, 'Profile')">
+        <span class="iconfont icon-31wode"></span>
+        <p>我的</p>
+      </li>
+    </ul>
+
+  </div>
+  <!-- 内容页面 -->
+  <iframe id="jin_iframeContent" src="home.html" frameborder="0" width="100%" height="100%"></iframe>
+
+</body>
+
+</html>

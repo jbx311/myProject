@@ -1,0 +1,14 @@
+[
+    {
+      "imageSrc": "..\\resource\\images\\桶子鸡.jpg",
+      "description": "桶子鸡桶子鸡桶子鸡桶子鸡桶子鸡桶子鸡",
+      "learners": "600人学",
+      "storeName": "店面名称"
+    },
+    {
+        "imageSrc": "..\\resource\\images\\大盘鸡.jpg",
+        "description": "大盘鸡大盘鸡大盘鸡大盘鸡大盘鸡",
+        "learners": "700人学",
+        "storeName": "店面名称"
+    }
+]

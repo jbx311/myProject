@@ -1,0 +1,58 @@
+{
+  "id": "4764016",
+  "name": "大作业",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "19949527",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "23034079",
+      "name": "厨师帽",
+      "font_class": "chushimao",
+      "unicode": "e8b7",
+      "unicode_decimal": 59575
+    },
+    {
+      "icon_id": "201228",
+      "name": "3.1我的",
+      "font_class": "31wode",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5388065",
+      "name": "消息_o",
+      "font_class": "xiaoxi_o",
+      "unicode": "ebc9",
+      "unicode_decimal": 60361
+    },
+    {
+      "icon_id": "26587696",
+      "name": "明厨",
+      "font_class": "mingchu",
+      "unicode": "e92c",
+      "unicode_decimal": 59692
+    },
+    {
+      "icon_id": "33986999",
+      "name": "首页-置灰",
+      "font_class": "shouye-zhihui",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "39545730",
+      "name": "加号（填充）",
+      "font_class": "plus_full",
+      "unicode": "ea6c",
+      "unicode_decimal": 60012
+    }
+  ]
+}

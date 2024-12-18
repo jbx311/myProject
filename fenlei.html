@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="..\resource\fonts\iconfont.css">
+  <script src="..\resource\fonts\iconfont.js"></script>
+  <title>首页</title>
+  <!--公共样式-->
+  <!-- <link rel="stylesheet" href="../resource/css/styles.css"> -->
+  <!--首页样式-->
+  <link rel="stylesheet" href="../resource/css/fenlei.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- 顶部导航 -->
+  <div class="jin_jin_top-navbar">
+    <div class="jin_top-navbar">
+        <button onclick="window.location.href='guanzhu.html'"  >关注</button>
+        <button onclick="window.location.href='home.html'">发现</button>
+        <button onclick="window.location.href='fenlei.html'" class="active">分类</button>
+      </div>
+  </div>
+
+  <!-- 搜索框 -->
+  <div class="search-box">
+    <div class="search-input-box">
+      <img src="../resource/images/search.png" alt="搜索" class="search-icon">
+      <input type="text" placeholder="搜菜谱、食谱" id="searchInput" oninput="filterNews()">
+    </div>
+  </div>
+
+  <div style="margin-top: 150px;display: flex;flex-direction: column;background-color:#ffffff !important;">
+    <div class="title-bar" style="display: flex;justify-content: space-between;align-items: center;z-index: 999;margin-top: 50px;background-color: #fff !important;">
+      <div class="left-column" style="font-size: 13px;color: #bcbcbc;">热门活动</div>
+      <div class="right-column">
+        <a href="#" class="view-all" style="font-size: 13px;color: #bcbcbc;">更多></a>
+      </div>
+    </div>
+
+    <!-- Swiper容器 -->
+    <div class="swiper courseSwiper">
+      <div class="swiper-wrapper" id="food-items-container"  style="display: flex;">
+        <!-- 动态加载内容 -->
+      </div>
+      
+    </div>
+    <div style="font-size: 14px;color: #666;font-weight: bold;margin: 10px 0 0 10px;">菜谱分类</div>
+    <div class="container1" style="margin-top: 10px;">
+        <div class="categories" style="min-width: 80px;">
+            <!-- 一级分类列表将动态生成 -->
+        </div>
+        <div class="sub-categories">
+            <!-- 二级分类按钮将动态生成 -->
+        </div>
+    </div>
+  </div>
+
+   <!-- 引入Swiper的JS -->
+   <script src="../resource/js/swiper.js"></script>
+   <script>
+    window.onload = function () {
+      // 定义JSON数据
+      var jsonData = [
+        {
+          "imageSrc": "../resource/images/桶子鸡.jpg",
+        },
+        {
+          "imageSrc": "../resource/images/大盘鸡.jpg",
+        },
+        {
+          "imageSrc": "../resource/images/麻婆豆腐.jpg",
+        },
+        {
+          "imageSrc": "../resource/images/牛骨汤.jpg",
+        }
+      ];
+
+      // 初始化Swiper
+      const container = document.getElementById('food-items-container');
+      jsonData.forEach(item => {
+        container.innerHTML += `
+          <div class="swiper-slide" style="width: 200px;display: flex;align-items: center;">
+            <div class="food-item" onclick="gotoDetail()">
+              <img src="${item.imageSrc}" style="width: 200px;height: 100px;">
+              <div style="font-size: 12px;color: #666;
+              background-color: #f1f1f1;border-radius: 5px;padding: 2px;width: 42px;line-height: 20px;
+              position: absolute;bottom: 5px;left: 5px;height: 20px;text-align: center;
+              ">进行中</div>
+            </div>
+          </div>
+        `;
+      });
+
+     
+
+      // 初始化Swiper实例
+      const courseSwiper = new Swiper(".courseSwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 8,
+        freeMode: true
+      });
+
+     
+      function gotoDetail() {
+        const link = document.createElement('a');
+        link.href = "chef_detail.html";
+        link.target = '_top';
+        link.click();
+      }
+    };
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const categoriesContainer = document.querySelector('.categories');
+    const subCategoriesContainer = document.querySelector('.sub-categories');
+
+    const categories =  [
+        { name: '肉类', id: 1, subCategories: ['牛肉', '猪肉', '鸡肉', '羊肉', '鸭肉', '鱼肉'] },
+        { name: '蔬菜', id: 2, subCategories: ['西红柿', '黄瓜', '白菜'] },
+        { name: '海鲜', id: 3, subCategories: ['鱼', '虾', '蟹'] },
+        { name: '水果', id: 4, subCategories: ['苹果', '香蕉', '橙子'] },
+        { name: '谷物', id: 5, subCategories: ['小麦', '大米', '玉米'] },
+        { name: '奶制品', id: 6, subCategories: ['牛奶', '酸奶', '奶酪'] },
+        { name: '甜品', id: 7, subCategories: ['蛋糕', '冰淇淋', '甜甜圈'] },
+        { name: '饮料', id: 8, subCategories: ['咖啡', '茶', '果汁'] }
+    ];;
+
+    function renderCategories() {
+        categories.forEach(category => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.textContent = category.name;
+            categoryDiv.dataset.id = category.id;
+            categoryDiv.addEventListener('click', () => selectCategory(category.id));
+            categoriesContainer.appendChild(categoryDiv);
+        });
+    }
+
+    function selectCategory(id) {
+        document.querySelectorAll('.categories div').forEach(div => div.classList.remove('selected'));
+        const selectedDiv = document.querySelector(`.categories div[data-id="${id}"]`);
+        selectedDiv.classList.add('selected');
+        renderSubCategories(id);
+    }
+
+    function renderSubCategories(id) {
+        subCategoriesContainer.innerHTML = '';
+        const selectedCategory = categories.find(category => category.id === id);
+        selectedCategory.subCategories.forEach(subCategory => {
+            const button = document.createElement('button');
+            button.textContent = subCategory;
+            subCategoriesContainer.appendChild(button);
+        });
+    }
+
+    renderCategories();
+
+    // 默认选中第一个分类
+    if (categories.length > 0) {
+        selectCategory(categories[0].id);
+    }
+});
+  </script>
+
+</body>
+
+</html>

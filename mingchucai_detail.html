@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="..\resource\fonts\iconfont.css">
+  <script src="..\resource\fonts\iconfont.js"></script>
+  <title>首页</title>
+  <!--公共样式-->
+  <!-- <link rel="stylesheet" href="../resource/css/styles.css"> -->
+  <!--首页样式-->
+  <link rel="stylesheet" href="../resource/css/fenlei.css">
+  <style>
+    .card {
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .header-info {
+        flex-grow: 1;
+    }
+
+    .name {
+        font-size: 16px;
+        color: #333;
+        margin: 0;
+    }
+
+    .tag {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+
+    .card-body {
+        display: flex;
+    }
+
+    .description {
+        flex: 2; /* 占据三分之二的空间 */
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+
+<body style="width: 100%;height: 100%;overflow-y: scroll;">
+  <!-- 顶部导航 -->
+  <div class="bg">
+    <img src="../resource/images/bg.jpg" alt="" style="width: 100%;height: 100px;background-size: 100% 100%;">
+  </div>
+
+  <div style="height: 100px;width: 100%;background-color: #fff;padding: 10px 20px;">
+    <div style="font-size: 24px;color: #333;font-weight: bold;">高颜值餐后甜点 独家配方 轻松学会</div>
+    <div style="font-size: 12px;color: #666;margin: 2px;">共3讲·总时长09分50秒</div>
+  </div>
+  <div style="display: flex;flex-direction: column;background-color:#ffffff !important;justify-content: flex-start;margin-top: -100px;flex:1;">
+    <div class="title-bar" style="display: flex;justify-content: space-between;align-items: center;z-index: 999;margin-top: 50px;background-color: #fff !important;position: relative;">
+      <div class="left-column" style="font-size: 15px;color: #333;font-weight: bold;">课程表</div>
+      <div class="right-column">
+        <a href="#" class="view-all" style="font-size: 15px;color: #999;">3 ></a>
+      </div>
+    </div>
+    
+
+    <!-- Swiper容器 -->
+    <div class="swiper courseSwiper" style="margin-top: 40px;">
+      <div class="swiper-wrapper" id="food-items-container"  style="display: flex;">
+        <!-- 动态加载内容 -->
+      </div>
+      
+    </div>
+    <div style="display: flex;justify-content: space-between;align-items: center;z-index: 999;margin-top: 20px;background-color: #fff !important;padding: 0 15px;">
+        <div class="left-column" style="font-size: 15px;color: #333;font-weight: bold;">老师简介</div>
+        <div class="right-column">
+          <a href="#" class="view-all" style="font-size: 15px;color: #999;">常见问题</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <img src="../resource/images/headicons/icon10.webp" alt="Avatar" class="avatar">
+            <div class="header-info">
+                <h3 class="name">范玖炘</h3>
+                <span class="tag" style="background-color: rgb(232, 170, 74);">名厨</span>
+            </div>
+        </div>
+        <div class="card-body" style="display: flex;flex-direction: column;line-height: 1.5;font-size: 14px;">
+            <p>
+                北京威斯汀中餐行政总厨二十六年的经验
+            </p>
+            <p class="description">主张健康、简单、更有特色的高饪理念，烹饪健康融合菜。主要擅长创意菜哦</p>
+        </div>
+    </div>
+    <div style="display: flex;flex-direction: column;padding: 0 15px;font-size: 13px;line-height: 2;">
+        <p style="font-weight: bold;font-size: 16px;">【课程简介】</p>
+        <p>
+            没有什么比吃甜品更让人开心的啦，名厨亲授3款甜品，高颜值超美味，自己在家就能做~酸甜可口的蓝莓酸奶冻~桂花浓郁、香甜软糯的甜醉藕~QQ弹弹的草莓西米冻~没有什么是一个甜品解决不了哒，还等什么，快和大厨一起学起来~
+        </p>
+    </div>
+    <div style="display: flex;flex-direction: column;padding: 0 15px;font-size: 13px;line-height: 2;">
+        <p style="font-weight: bold;font-size: 16px;">【解决问题</p>
+        <p>
+            1.如何防止西米粘连?
+        </p>
+        <p>2.如何让西米更Q弹?</p>
+        <p>3.如何让西米更香甜?</p>
+    </div>
+    <div style="display: flex;flex-direction: column;padding: 0 15px;font-size: 13px;line-height: 2;">
+        <p style="font-weight: bold;font-size: 16px;">【你将学会】</p>
+        <p>
+            1.挑选糖花的小方法?
+        </p>
+        <p>2.煮藕时糖、水的最佳比例。</p>
+        <p>3.处理藕的小妙招?</p>
+    </div>
+    <div style="display: flex;flex-direction: column;padding: 0 15px;font-size: 13px;line-height: 2;">
+        <p style="font-weight: bold;font-size: 16px;">【小技巧】</p>
+        <p>
+            1.使用油纸的原因是因为油纸本身不会吸水，在冰箱冷冻结束之后，只要轻轻一碰就能轻易的把蓝莓酸奶冻拿下来，不会产生粘连。
+        </p>
+        <p>2.片吉利丁片配比200-250ml的液体加以融化，最适合的温度在40-50度左右，切忌不要用高温去融化。</p>
+        <p>3.煮制西米时，全程小火煮制十分钟左右，过程中不断搅拌防止西米粘连</p>
+        
+
+
+    </div>
+    
+    
+  </div>
+
+   <!-- 引入Swiper的JS -->
+   <script src="../resource/js/swiper.js"></script>
+   <script>
+    window.onload = function () {
+      // 定义JSON数据
+      var jsonData = [
+        {
+          "imageSrc": "../resource/images/桶子鸡.jpg",
+        },
+        {
+          "imageSrc": "../resource/images/大盘鸡.jpg",
+        },
+        {
+          "imageSrc": "../resource/images/麻婆豆腐.jpg",
+        },
+        {
+          "imageSrc": "../resource/images/牛骨汤.jpg",
+        }
+      ];
+
+      // 初始化Swiper
+      const container = document.getElementById('food-items-container');
+      jsonData.forEach(item => {
+        container.innerHTML += `
+          <div class="swiper-slide" style="width: 200px;display: flex;align-items: center;">
+            <div class="food-item" onclick="gotoDetail()">
+              <img src="${item.imageSrc}" style="width: 200px;height: 100px;">
+              
+            </div>
+          </div>
+        `;
+      });
+
+     
+
+      // 初始化Swiper实例
+      const courseSwiper = new Swiper(".courseSwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 8,
+        freeMode: true
+      });
+
+     
+      function gotoDetail() {
+        const link = document.createElement('a');
+        link.href = "chef_detail.html";
+        link.target = '_top';
+        link.click();
+      }
+    };
+  </script>
+    
+
+  <!-- 在页面顶部添加返回按钮 -->
+  <div class="back-button" onclick="goBack()">
+    <img src="../resource/images/back2.png" alt="Back" style="width: 24px; height: 24px;">
+  </div>
+
+  <script>
+    function goBack() {
+        window.history.back();
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+/* 确保body和html不允许水平滚动 */
+html, body {
+    max-width: 100vw; /* 视口宽度 */
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+}
+
+/* 确保所有容器都不会超出视口宽度 */
+.jin_container {
+    width: 100%;
+    box-sizing: border-box; /* 包括padding和border在内的宽度 */
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+}
+
+/* 如果有特定的元素经常导致滚动问题，确保它们的宽度不会超出视口 */
+.jin_specific-element {
+    max-width: 100%; /* 不超过100%视口宽度 */
+} 

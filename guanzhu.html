@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="..\resource\fonts\iconfont.css">
+  <script src="..\resource\fonts\iconfont.js"></script>
+  <title>首页</title>
+  <!--公共样式-->
+  <link rel="stylesheet" href="../resource/css/styles.css">
+  <!--首页样式-->
+  <link rel="stylesheet" href="../resource/css/guanzhu.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- 顶部导航 -->
+  <div class="jin_top-navbar">
+    <button onclick="window.location.href='guanzhu.html'" class="jin_active">关注</button>
+    <button onclick="window.location.href='home.html'">发现</button>
+    <button onclick="window.location.href='fenlei.html'">分类</button>
+  </div>
+
+  <!-- 搜索框 -->
+  <div class="jin_search-box">
+    <div class="jin_search-input-box">
+      <img src="../resource/images/search.png" alt="搜索" class="jin_search-icon">
+      <input type="text" placeholder="搜菜谱、食谱" id="jin_searchInput" oninput="filterNews()">
+    </div>
+  </div>
+
+  <div class="jin_news-content">
+    <!-- 动态加载新闻列表 -->
+  </div>
+
+  <script>
+    const newsData =[
+    {
+        "imageSrc": "../resource/images/headicons/icon0.webp",
+        "name": "厨师0",
+        "date": "2023-01-00",
+        "level": "VIP1",
+        "content": "这是自动生成的第3条新闻内容，展示动态加载效果。这是自动生成的第3条新闻内容，展示动态加载效果。这是自动生成的第3条新闻内容，展示动态加载效果。",
+        "views": 110,
+        "shares": 2,
+        "messages": 3,
+        "likes": 4
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon1.webp",
+        "name": "厨师1",
+        "date": "2023-01-01",
+        "level": "VIP2",
+        "content": "这是自动生成的第4条新闻内容，展示动态加载效果。这是自动生成的第4条新闻内容，展示动态加载效果。这是自动生成的第4条新闻内容，展示动态加载效果。",
+        "views": 120,
+        "shares": 4,
+        "messages": 6,
+        "likes": 8
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon2.webp",
+        "name": "厨师2",
+        "date": "2023-01-02",
+        "level": "VIP3",
+        "content": "这是自动生成的第5条新闻内容，展示动态加载效果。这是自动生成的第5条新闻内容，展示动态加载效果。这是自动生成的第5条新闻内容，展示动态加载效果。",
+        "views": 130,
+        "shares": 6,
+        "messages": 9,
+        "likes": 12
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon3.webp",
+        "name": "厨师3",
+        "date": "2023-01-03",
+        "level": "VIP1",
+        "content": "这是自动生成的第6条新闻内容，展示动态加载效果。这是自动生成的第6条新闻内容，展示动态加载效果。这是自动生成的第6条新闻内容，展示动态加载效果。",
+        "views": 140,
+        "shares": 8,
+        "messages": 12,
+        "likes": 16
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon4.webp",
+        "name": "厨师4",
+        "date": "2023-01-04",
+        "level": "VIP2",
+        "content": "这是自动生成的第7条新闻内容，展示动态加载效果。这是自动生成的第7条新闻内容，展示动态加载效果。这是自动生成的第7条新闻内容，展示动态加载效果。",
+        "views": 150,
+        "shares": 10,
+        "messages": 15,
+        "likes": 20
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon5.webp",
+        "name": "厨师5",
+        "date": "2023-01-05",
+        "level": "VIP3",
+        "content": "这是自动生成的第8条新闻内容，展示动态加载效果。这是自动生成的第8条新闻内容，展示动态加载效果。这是自动生成的第8条新闻内容，展示动态加载效果。",
+        "views": 160,
+        "shares": 12,
+        "messages": 18,
+        "likes": 24
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon6.webp",
+        "name": "厨师6",
+        "date": "2023-01-06",
+        "level": "VIP1",
+        "content": "这是自动生成的第9条新闻内容，展示动态加载效果。这是自动生成的第9条新闻内容，展示动态加载效果。这是自动生成的第9条新闻内容，展示动态加载效果。",
+        "views": 170,
+        "shares": 14,
+        "messages": 21,
+        "likes": 28
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon7.webp",
+        "name": "厨师7",
+        "date": "2023-01-07",
+        "level": "VIP2",
+        "content": "这是自动生成的第10条新闻内容，展示动态加载效果。这是自动生成的第10条新闻内容，展示动态加载效果。这是自动生成的第10条新闻内容，展示动态加载效果。",
+        "views": 180,
+        "shares": 16,
+        "messages": 24,
+        "likes": 32
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon8.webp",
+        "name": "厨师8",
+        "date": "2023-01-08",
+        "level": "VIP3",
+        "content": "这是自动生成的第11条新闻内容，展示动态加载效果。这是自动生成的第11条新闻内容，展示动态加载效果。这是自动生成的第11条新闻内容，展示动态加载效果。",
+        "views": 190,
+        "shares": 18,
+        "messages": 27,
+        "likes": 36
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon9.webp",
+        "name": "厨师9",
+        "date": "2023-01-09",
+        "level": "VIP1",
+        "content": "这是自动生成的第12条新闻内容，展示动态加载效果。这是自动生成的第12条新闻内容，展示动态加载效果。这是自动生成的第12条新闻内容，展示动态加载效果。",
+        "views": 200,
+        "shares": 20,
+        "messages": 30,
+        "likes": 40
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon10.webp",
+        "name": "厨师10",
+        "date": "2023-01-10",
+        "level": "VIP2",
+        "content": "这是自动生成的第13条新闻内容，展示动态加载效果。这是自动生成的第13条新闻内容，展示动态加载效果。这是自动生成的第13条新闻内容，展示动态加载效果。",
+        "views": 210,
+        "shares": 22,
+        "messages": 33,
+        "likes": 44
+    },
+    {
+        "imageSrc": "../resource/images/headicons/icon11.webp",
+        "name": "厨师11",
+        "date": "2023-01-11",
+        "level": "VIP3",
+        "content": "这是自动生成的第14条新闻内容，展示动态加载效果。这是自动生成的第14条新闻内容，展示动态加载效果。这是自动生成的第14条新闻内容，展示动态加载效果。",
+        "views": 220,
+        "shares": 24,
+        "messages": 36,
+        "likes": 48
+    }
+]
+
+    
+    // 动态加载新闻列表的函数
+    function loadNews() {
+        const newsContainer = document.querySelector('.jin_news-content');
+        newsContainer.innerHTML = ''; // 清空现有内容
+        newsData.forEach(news => {
+            if (newsMatchesSearch(news)) {
+                const newsItem = createNewsItem(news);
+                newsContainer.appendChild(newsItem);
+            }
+        });
+    }
+
+    // 创建新闻项的函数
+    function createNewsItem(news) {
+        const newsItem = document.createElement('div');
+        newsItem.className = 'news-item';
+        newsItem.innerHTML = `
+            <div class="news-item-header">
+                <img src="${news.imageSrc}" alt="${news.name}">
+                <div>
+                    <div class="name">${news.name}</div>
+                    <div class="date">${news.date}</div>
+                </div>
+            </div>
+            <div class="news-item-content">${news.content}</div>
+            <div class="news-item-stats">
+                <div class="left">
+                    12万人浏览
+                </div>
+                <div class="right" style="width: 120px;display: flex;justify-content: space-between;gap: 10px;"> 
+                    <div style="display: flex;align-items: center;"><img src="../resource/images/headicons/share.png" alt="Shares">${news.shares}</div>
+                    <div style="display: flex;align-items: center;"><img src="../resource/images/headicons/message.png" alt="Messages">${news.messages}</div>
+                    <div style="display: flex;align-items: center;"><img src="../resource/images/headicons/like.png" alt="Likes">${news.likes}</div>
+                </div>
+            </div>
+        `;
+        return newsItem;
+    }
+
+    // 检查新闻是否匹配搜索条件
+    function newsMatchesSearch(news) {
+        const searchText = document.getElementById('jin_searchInput').value.toLowerCase();
+        return news.content.toLowerCase().includes(searchText) ||
+               news.name.toLowerCase().includes(searchText);
+    }
+
+    // 搜索框内容变化时调用的函数
+    function filterNews() {
+        loadNews(); // 重新加载新闻列表
+    }
+
+    // 页面加载完成后加载新闻列表
+    document.addEventListener('DOMContentLoaded', loadNews);
+  </script>
+
+</body>
+
+</html>

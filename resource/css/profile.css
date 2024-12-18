@@ -1,0 +1,156 @@
+.header {
+  background-image: url('..\\resource\\images\\jin_profile_top.png');
+  /* 替换为你的背景图片路径 */
+  background-size: cover;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.jin_profile {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jin_profile-pic {
+  margin-right: 20px;
+}
+
+.jin_profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.jin_profile-right {
+  height: 100%;
+  display: flex;
+  /* 使用flex布局 */
+  /* align-items: center; */
+  flex-direction: column;
+  /* 垂直居中对齐 */
+  justify-content: space-evenly;
+}
+
+.stats {
+  display: flex;
+  /* 使用flex布局 */
+  align-items: center;
+
+  /* 垂直居中对齐 */
+}
+
+.stats div {
+  text-align: center;
+  margin-right: 10px;
+  /* 子项之间的间距 */
+}
+
+.stats div:last-child {
+  margin-right: 0;
+  /* 移除最后一个子项的右边距 */
+}
+
+.jin_profile-right-bottom {
+  margin-top: 20px;
+
+}
+
+.jin_profile-right-bottom span {
+
+  padding: 10px 20px;
+  border: 1px solid #808080;
+  /* 灰色��框 */
+  border-radius: 10px;
+}
+
+.jin_profile-name {
+  background-color: white;
+  padding-left: 20px;
+}
+
+.menu {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+
+}
+
+.menu div {
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.post {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+ 
+}
+
+.post img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/**底部tab**/
+.tabs {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  /* 使用flex布局使子元素居中 */
+  list-style: none;
+  /* 移除列表的默认样式 */
+  padding: 0;
+  /* 移除内边距 */
+  margin: 0;
+  /* 移除外边距 */
+}
+
+.tabs ul {
+  display: flex;
+  justify-content: center;
+  /* 使列表项居中 */
+  padding: 0;
+  /* 移除内边距 */
+  margin: 0;
+  /* 移除外边距 */
+}
+
+.tablinks {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  text-align: center;
+  /* 使文本居中 */
+  transition: 0.3s;
+  flex: 1;
+  /* 使每个tablinks平分空间 */
+  color: dimgrey;
+}
+
+.tablinks.active {
+  color: #000;
+  font-weight: bolder;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* 全局设置所有元素的 border-radius 为 0 */
+* {
+    border-radius: 0 !important;
+}

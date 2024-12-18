@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="..\resource\fonts\iconfont.css">
+  <script src="..\resource\fonts\iconfont.js"></script>
+  <title>首页</title>
+  <!--公共样式-->
+  <link rel="stylesheet" href="../resource/css/styles.css">
+  <!--首页样式-->
+  <link rel="stylesheet" href="../resource/css/home.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- 顶部导航 -->
+  <div class="top-navbar">
+    <button onclick="window.location.href='guanzhu.html'">关注</button>
+    <button onclick="window.location.href='home.html'" class="active">发现</button>
+    <button onclick="window.location.href='fenlei.html'">分类</button>
+  </div>
+
+  <!-- 搜索框 -->
+  <div class="search-box">
+    <div class="search-input-box">
+      <img src="../resource/images/search.png" alt="搜索" class="search-icon">
+      <input type="text" placeholder="搜菜谱、食材">
+    </div>
+  </div>
+
+  <!-- 分类标签 -->
+  <ul id="category-nav">
+    <li data-target="hot">热门</li>
+    <li data-target="recipes">菜谱</li>
+    <li data-target="baking">烘焙</li>
+    <li data-target="lunch">午餐</li>
+    <li data-target="circle">美食圈</li>
+    <li data-target="fitness">健身</li>
+    <li data-target="travel">旅行</li>
+  </ul>
+
+  <!-- 内容区域 -->
+  <div id="category-content">
+    <div class="content-item" id="hot">
+      <div class="food-items" id="hot_items">
+      </div>
+    </div>
+    <div class="content-item" id="recipes">
+      <div class="food-items" id="recipes_items">
+      </div>
+    </div>
+    <div class="content-item" id="baking">
+      <div class="food-items" id="baking_items">
+      </div>
+    </div>
+    <div class="content-item" id="lunch">
+      <div class="food-items" id="lunch_items">
+      </div>
+    </div>
+    <div class="content-item" id="circle">
+      <div class="food-items" id="circle_items">
+      </div>
+    </div>
+    <div class="content-item" id="fitness">
+      <div class="food-items" id="fitness_items">
+      </div>
+    </div>
+    <div class="content-item" id="travel">
+      <div class="food-items" id="travel_items">
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // 定义JSON数据
+    var jsonData = [
+      {
+        "imageSrc": "../resource/images/桶子鸡.jpg",
+        "title": "美食1美食1美食1美食1美食",
+        "shopName": "四川炒菜王",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/大盘鸡.jpg",
+        "title": "大盘鸡大盘鸡大盘鸡大盘鸡",
+        "shopName": "东北炒菜王",
+        "number": "500"
+      },
+      {
+        "imageSrc": "../resource/images/麻婆豆腐.jpg",
+        "title": "麻婆豆腐麻婆豆腐麻婆豆腐麻婆豆腐",
+        "shopName": "火锅店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/大盘鸡.jpg",
+        "title": "大盘鸡大盘鸡大盘鸡大盘鸡",
+        "shopName": "早餐店",
+        "number": "500"
+      },
+      {
+        "imageSrc": "../resource/images/麻婆豆腐.jpg",
+        "title": "酸菜鱼酸菜鱼酸菜鱼酸菜鱼",
+        "shopName": "酸菜鱼店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/大盘鸡.jpg",
+        "title": "烧烤烧烤烧烤烧烤烧烤",
+        "shopName": "烧烤店",
+        "number": "500"
+      },
+      {
+        "imageSrc": "../resource/images/八宝饭.webp",
+        "title": "八宝饭八宝饭八宝饭八宝饭",
+        "shopName": "八宝饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/白切鸡.webp",
+        "title": "白切鸡白切鸡白切鸡白切鸡",
+        "shopName": "白切鸡饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/菠菜火腿肠卷饼.webp",
+        "title": "菠菜火腿肠卷饼菠菜火腿肠卷饼菠菜火腿肠卷饼",
+        "shopName": "菠菜饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/蓝莓松饼.jpg",
+        "title": "蓝莓蓝莓蓝莓蓝莓",
+        "shopName": "蓝莓饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/减肥沙拉.webp",
+        "title": "减肥沙拉减肥沙拉减肥沙拉减肥沙拉",
+        "shopName": "减肥沙拉饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/牛骨汤.jpg",
+        "title": "牛骨汤",
+        "shopName": "牛骨汤",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/红烧带鱼段.webp",
+        "title": "红烧带鱼段红烧带鱼段红烧带鱼段红烧带鱼段",
+        "shopName": "红烧带鱼段饭店",
+        "number": "20"
+      }
+    ];
+    var jsonData2 = [
+      {
+        "imageSrc": "../resource/images/麻婆豆腐.jpg",
+        "title": "酸菜鱼酸菜鱼酸菜鱼酸菜鱼",
+        "shopName": "酸菜鱼店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/大盘鸡.jpg",
+        "title": "烧烤烧烤烧烤烧烤烧烤",
+        "shopName": "烧烤店",
+        "number": "500"
+      },
+      {
+        "imageSrc": "../resource/images/八宝饭.webp",
+        "title": "八宝饭八宝饭八宝饭八宝饭",
+        "shopName": "八宝饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/白切鸡.webp",
+        "title": "白切鸡白切鸡白切鸡白切鸡",
+        "shopName": "白切鸡饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/菠菜火腿肠卷饼.webp",
+        "title": "菠菜火腿肠卷饼菠菜火腿肠卷饼菠菜火腿肠卷饼",
+        "shopName": "菠菜饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/蓝莓松饼.jpg",
+        "title": "蓝莓蓝莓蓝莓蓝莓",
+        "shopName": "蓝莓饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/臭豆腐.jpg",
+        "title": "臭豆腐臭豆腐臭豆腐臭豆腐",
+        "shopName": "臭豆腐饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/红枣面包.jpg",
+        "title": "红枣面包红枣面包红枣面包红枣面包",
+        "shopName": "红枣面包饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/卤猪蹄.jpg",
+        "title": "豆腐脑豆腐脑豆腐脑豆腐脑",
+        "shopName": "豆腐脑饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/减肥沙拉.webp",
+        "title": "减肥沙拉减肥沙拉减肥沙拉减肥沙拉",
+        "shopName": "减肥沙拉饭店",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/牛骨汤.jpg",
+        "title": "牛骨汤",
+        "shopName": "牛骨汤",
+        "number": "20"
+      },
+      {
+        "imageSrc": "../resource/images/红烧带鱼段.webp",
+        "title": "红烧带鱼段红烧带鱼段红烧带鱼段红烧带鱼段",
+        "shopName": "红烧带鱼段饭店",
+        "number": "20"
+      }
+
+    ];
+    // JavaScript代码用于切换顶部导航栏的active状态
+    const topNavButtons = document.querySelectorAll('.top-navbar button');
+    topNavButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        topNavButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    // JavaScript代码用于切换分类导航栏的active状态和显示对应的内容
+    const categoryNavItems = document.querySelectorAll('#category-nav li');
+    const contentItems = document.querySelectorAll('#category-content .content-item');
+
+    // 初始化页面时隐藏所有内容项
+    contentItems.forEach(contentItem => {
+      contentItem.style.display = 'none';
+    });
+    //默认显示第一个
+    categoryNavItems[0].classList.add('cur');
+    contentItems[0].style.display = 'block';
+    const target = categoryNavItems[0].getAttribute('data-target');
+    const contentItemDiv = document.getElementById(target + '_items');
+
+    initData(contentItemDiv, jsonData);
+    // 为每个分类导航项添加点击事件
+    categoryNavItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        // 移除所有分类导航项的active状态
+        categoryNavItems.forEach(navItem => navItem.classList.remove('cur'));
+        // 给当前点击的分类导航项添加active状态
+        item.classList.add('cur');
+        // 隐藏所有内容项
+        contentItems.forEach(contentItem => {
+          contentItem.classList.remove('active');
+          contentItem.style.display = 'none';
+        });
+        // 显示对应的内容项
+        const target = item.getAttribute('data-target');
+        const contentItem = document.getElementById(target);
+        contentItem.style.display = 'block'; // 显示对应的内容项
+        contentItem.classList.add('active');
+        console.log("contentItem.firstChild");
+        console.log(target);
+        const contentItemDiv = document.getElementById(target + '_items');
+
+        if (index % 2 == 0) { //模拟加载不同数据
+          initData(contentItemDiv, jsonData);
+        } else {
+          initData(contentItemDiv, jsonData2);
+        }
+      });
+    });
+
+
+
+    /* 加载页面数据*/
+    function initData(container, data) {
+      // 清空容器
+      container.innerHTML = '';
+      // 遍历JSON数据，创建HTML元素
+      data.forEach(item => {
+        container.innerHTML += `
+          <div class="food-item">
+            <img src="${item.imageSrc}" alt="${item.title}">
+            <p>${item.title}</p>
+            <div>
+              <span>${item.shopName}</span>
+              <span>
+                <img src="../resource/images/like.png" alt="点赞">
+                <span>${item.number}</span>
+              </span>
+            </div>
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+
+</html>

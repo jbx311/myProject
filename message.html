@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--消息页面-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消息</title>
+  <link rel="stylesheet" href="../resource/css/message.css?v=1.1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .jin_header {
+      background-color: transparent;
+      color: #333;
+      padding: 12px 16px;
+      text-align: center;
+      box-shadow: none;
+    }
+
+    .jin_header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: normal;
+    }
+
+    .jin_message-main {
+      display: block;
+      width: 100%;
+      padding: 20px 10px;
+    }
+
+    .jin_message-item {
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      height: 50px;
+      background-color: #ffffff;
+      margin-bottom: 2px;
+      border-radius: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .left-column,
+    .right-column {
+      align-items: center;
+      display: flex;
+    }
+
+    .left-column {
+      font-size: 16px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+
+    .left-column img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .left-column span {
+      font-size: 12px;
+      color: #4CAF50;
+      font-weight: normal;
+    }
+
+    .right-column span {
+      background-color: #28a745;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 15px;
+    }
+
+    p {
+      text-align: center;
+      color: #ccc;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .jin_notification-bar {
+      background-color: rgb(252, 249, 196);
+      color: #ff8a80;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="jin_header">
+    <h1>消息</h1>
+  </div>
+
+  <div class="jin_notification-bar" onclick="enableNotifications()">
+    点击开启消息通知，第一时间收到哈有评论提醒
+  </div>
+
+  <div class="jin_message-main" id="jin_message-main-id">
+    <!-- 动态加载联系人数据 -->
+  </div>
+  <p>- 在香哈，记录我的生活 -</p>
+
+</body>
+<script>
+  window.onload = function () {
+    var jsonData = [
+      {
+        "imageSrc": "../resource/images/xin1.png",
+        "name": "香哈小秘书"
+      },
+      {
+        "imageSrc": "../resource/images/xin2.png",
+        "name": "赞过我的"
+      },
+    ];
+
+    const container = document.getElementById('jin_message-main-id');
+    jsonData.forEach(item => {
+      container.innerHTML += `
+        <div class="jin_message-item">
+          <div class="left-column">
+            <img src="${item.imageSrc}" alt="${item.name}">
+            <span>${item.name}</span>
+          </div>
+        </div>
+      `;
+    });
+  };
+
+  function enableNotifications() {
+    // 示例功能：模拟开启通知
+    alert('消息通知已开启！');
+  }
+</script>
+
+</html>

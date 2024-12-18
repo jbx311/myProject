@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--个人信息编辑页面-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="../resource/css/styles.css">
+    <style>
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .header button {
+            margin-left: auto;
+            /* 将保存按钮放置在右侧 */
+            background-color: #28a745;
+            /* 绿色背景 */
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .profile button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .info-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item label {
+            flex-basis: 30%;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .info-item select,
+        .info-item input {
+            flex-basis: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .info-item textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../resource/images/back.png" id="backButton" onclick="back">
+        <h1 class="page-title">个人信息</h1>
+        <button id="saveButton">保存</button> <!-- 保存按钮 -->
+    </div>
+    <form id="profileForm">
+        <div class="profile">
+            <img src="../resource/images/profile_head.jpg">
+            <button type="button">修改我的头像</button>
+        </div>
+        <div class="info-item">
+            <label for="nickname">昵称</label>
+            <input type="text" id="nickname" value="游客269CC" placeholder="请输入昵称">
+        </div>
+        <div class="info-item">
+            <label for="gender">性别</label>
+            <select id="gender">
+                <option value="">请选择性别</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </div>
+        <div class="info-item">
+            <label for="birthday">生日</label>
+            <input type="date" id="birthday" value="2024-12-01">
+        </div>
+        <div class="info-item">
+            <label for="education">学历</label>
+            <select id="education">
+                <option value="小学">小学</option>
+                <option value="初中">初中</option>
+                <option value="高中">高中</option>
+                <option value="大学">大学</option>
+                <option value="研究生">研究生</option>
+            </select>
+        </div>
+        <div class="info-item">
+            <label for="maritalStatus">婚否</label>
+            <select id="maritalStatus">
+                <option value="单身">单身</option>
+                <option value="已婚">已婚</option>
+            </select>
+        </div>
+        <div class="info-item">
+            <label for="bio">简介</label>
+            <textarea id="bio" placeholder="我的简介我的简介我的简介我的简介"></textarea>
+        </div>
+    </form>
+
+    <script>
+        // 提交表单
+        document.getElementById('saveButton').addEventListener('click', function () {
+            var form = document.getElementById('profileForm');
+            form.submit();
+            //提示信息
+            alert("保存成功！")
+        });
+
+
+
+        // 获取返回按钮元素
+        var backButton = document.getElementById('backButton');
+        // 为返回按钮添加点击事件监听器
+        backButton.addEventListener('click', function () {
+            back();
+        });
+
+        //返回按钮事件
+        function back() {
+            // 执行浏览器历史回退操作
+            window.history.back();
+        }
+
+    </script>
+</body>
+
+</html>

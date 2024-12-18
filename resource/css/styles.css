@@ -1,0 +1,160 @@
+/* 公共样式 */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  /* 设置根字体大小，1rem = 20px */
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* 两端对齐 */
+  padding: 10px;
+}
+
+.item-title-font {
+  font-size: medium;
+}
+
+/* 底部导航栏样式 */
+#nav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  background-color: #fff;
+  height: 80px;
+  justify-content: space-evenly;
+  padding: 0;
+  margin-bottom: 0;
+  /* border-top: 1px solid #808080; 灰色边框 */
+}
+
+/* #nav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  text-align: center;
+} */
+
+#nav span {
+  font-size: 1.4rem;
+  color: #999;
+  line-height: 30px;
+  display: block;
+}
+
+#nav li svg {
+  width: 100%;
+  height: auto;
+  /* 保持宽高比 */
+  max-width: 50px;
+  /* 限制最大宽度 */
+  max-height: 50px;
+  /* 限制最大高度 */
+}
+
+#nav p {
+  font-size: 0.6rem;
+  color: #aaa;
+  /* padding: 5px; */
+  margin: 0;
+}
+
+#nav>li:hover span,
+#nav li:hover p {
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 选中状态的标签页样式 */
+.tablinks.active span,
+.tablinks.active p {
+  color: #000 !important;
+  font-weight: bold;
+}
+
+/* 菜品展示样式 */
+.food-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.food-item {
+  width: 45%;
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.food-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.food-item img:hover {
+  transform: scale(1.05);
+}
+
+.food-item p {
+
+  width: 100%;
+  text-align: left;
+  font-weight: bolder;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  left: 0;
+}
+
+.food-item div {
+
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.food-item div span:first-child {
+  font-weight: lighter;
+}
+
+.food-item div span:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.food-item div span:last-child img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
